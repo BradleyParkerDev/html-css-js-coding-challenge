@@ -2,17 +2,25 @@ let count = 0
 //Body
 const body = document.querySelector('body');
 
-
+//////////////////////////////////////////////////////
 //containers
+//////////////////////////////////////////////////////
+
+//outerContainer
 const outerContainer = document.createElement('div')
 body.appendChild(outerContainer);
 outerContainer.id = 'outer-container'
+
+//innerContainer
 const innerContainer = document.createElement('div')
 outerContainer.appendChild(innerContainer)
 innerContainer.id ='inner-container'
 
-
+//////////////////////////////////////////////////////
 //inner-divs
+//////////////////////////////////////////////////////
+
+//appHeader
 const appHeader = document.createElement('div')
 appHeader.className = "inner-divs"
 appHeader.style.backgroundColor = "red"
@@ -27,13 +35,11 @@ appHeader.style.justifyContent = "space-evenly"
 logo.style.marginRight = "60%"
 logo.style.marginTop = "10%"
 menu.style.marginTop = "10%"
-
-
-
+//counterDiv
 const counterDiv = document.createElement('div')
 counterDiv.className = "inner-divs"
 counterDiv.style.justifyContent = "space-evenly"
-
+//iconDiv
 const iconDiv = document.createElement('div')
 iconDiv.className = "inner-divs"
 
@@ -41,8 +47,10 @@ innerContainer.appendChild(appHeader);
 innerContainer.appendChild(counterDiv);
 innerContainer.appendChild(iconDiv);
 
-
+//////////////////////////////////////////////////////
 //Star
+//////////////////////////////////////////////////////
+
 const star = document.createElement('div')
 star.className = "stars"
 const starImage = document.createElement("IMG");
@@ -50,8 +58,10 @@ starImage.setAttribute('src', 'star.png')
 starImage.id = "star-image";
 star.appendChild(starImage)
 
-
+//////////////////////////////////////////////////////
 //Buttons
+//////////////////////////////////////////////////////
+
 const removeBtn = document.createElement('button')
 removeBtn.className = 'buttons'
 removeBtn.innerHTML = ('Remove 1')
@@ -75,14 +85,17 @@ addBtn.addEventListener('click', ()=>{
 })
 
 
-
+//////////////////////////////////////////////////////
 //Counters
+//////////////////////////////////////////////////////
+
 const add = () => {
     
     if(count < 5){
         count++;
         countText.innerHTML = `${count}`;
-        iconDiv.appendChild(star)
+        const clone = star.cloneNode(true)
+        iconDiv.appendChild(clone)
 
         console.log(count)
 
@@ -94,7 +107,7 @@ const remove = () => {
     if(count <= 5 && count > 0){
         count--;
         countText.innerHTML = `${count}`;
-        iconDiv.removeChild(star)
+        iconDiv.removeChild(iconDiv.lastChild)
 
         console.log(count)
 
@@ -104,4 +117,3 @@ const remove = () => {
 
 
 
-// body.style.backgroundColor = "red";
