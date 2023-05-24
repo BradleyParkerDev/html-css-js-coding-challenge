@@ -25,7 +25,7 @@ body{
     height: 100px;
     margin: 5px 5px 5px 5px;
     display: flex;
-    border: dashed black 1px;
+    /* border: dashed black 1px; */
 }
 .buttons{
     margin-top: 5%;
